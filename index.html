@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex&Lilli</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #videoContainer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            z-index: 9999;
+            display: none; /* Das Video wird erst nach dem Klick sichtbar */
+        }
+        #scaryVideo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        #startButton {
+            font-size: 24px;
+            padding: 10px 20px;
+            color: white;
+            background-color: rgb(48, 0, 0);
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Start-Button -->
+<button id="startButton">Klick hier für das Kuss bild</button>
+
+<!-- Video-Container -->
+<div id="videoContainer">
+    <video id="scaryVideo">
+        <source src="jumpscare.mp4" type="video/mp4">
+        Dein Browser unterstützt kein HTML5-Video.
+    </video>
+</div>
+
+<script>
+    const startButton = document.getElementById('startButton');
+    const videoContainer = document.getElementById('videoContainer');
+    const scaryVideo = document.getElementById('scaryVideo');
+
+    startButton.addEventListener('click', () => {
+        // Blende den Button aus und das Video ein
+        startButton.style.display = 'none';
+        videoContainer.style.display = 'block';
+
+        // Spiele das Video ab und stelle sicher, dass der Ton eingeschaltet ist
+        scaryVideo.volume = 1.0; // Maximale Lautstärke
+        scaryVideo.play().catch((error) => {
+            console.error('Das Video konnte nicht abgespielt werden:', error);
+        });
+    });
+</script>
+
+</body>
+</html>
