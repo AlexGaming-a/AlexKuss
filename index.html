@@ -3,55 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jump Scare</title>
+    <title>Bild anzeigen</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-            background-color: black;
-            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
         }
-        #videoContainer {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: black;
-            z-index: 9999;
-        }
-        #scaryVideo {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #ccc;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
 <body>
 
-<div id="videoContainer">
-    <video id="scaryVideo" autoplay playsinline>
-        <source src="jumpscare.mp4" type="video/mp4">
-        Dein Browser unterstützt kein HTML5-Video.
-    </video>
-</div>
-
-<script>
-    window.addEventListener('DOMContentLoaded', () => {
-        const scaryVideo = document.getElementById('scaryVideo');
-
-        // Sicherstellen, dass das Video automatisch abgespielt wird
-        scaryVideo.volume = 1.0; // Maximale Lautstärke
-        scaryVideo.muted = true; // Video startet stumm
-
-        // Aktiviert den Ton, wenn das Video abgespielt wird
-        scaryVideo.play().then(() => {
-            scaryVideo.muted = false; // Ton nach Start aktivieren
-        }).catch((error) => {
-            console.error('Das Video konnte nicht abgespielt werden:', error);
-        });
-    });
-</script>
+<!-- Bild -->
+<img src="bild.jpg" alt="Beispielbild">
 
 </body>
 </html>
